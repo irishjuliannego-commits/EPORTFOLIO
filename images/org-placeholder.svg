@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="orgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3050" />
+      <stop offset="100%" stop-color="#111d2e" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#orgGrad)" rx="16" />
+  <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(201,168,76,0.25)" stroke-width="2" />
+  <circle cx="100" cy="100" r="68" fill="none" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" stroke-dasharray="4 3" />
+  <!-- Globe with Latitude/Longitude Lines -->
+  <circle cx="100" cy="100" r="48" fill="#16253a" stroke="#c9a84c" stroke-width="2" />
+  <ellipse cx="100" cy="100" rx="22" ry="48" fill="none" stroke="#c9a84c" stroke-width="1.2" />
+  <line x1="52" y1="100" x2="148" y2="100" stroke="#c9a84c" stroke-width="1.2" />
+  <line x1="56" y1="80" x2="144" y2="80" stroke="rgba(201,168,76,0.6)" stroke-width="1" />
+  <line x1="56" y1="120" x2="144" y2="120" stroke="rgba(201,168,76,0.6)" stroke-width="1" />
+  <line x1="100" y1="52" x2="100" y2="148" stroke="#c9a84c" stroke-width="1.2" />
+  <!-- Star / North Point -->
+  <polygon points="100,28 103,36 111,36 105,41 107,49 100,44 93,49 95,41 89,36 97,36" fill="#dfc376" />
+  <text x="100" y="172" fill="#8a95a7" font-family="'Inter', sans-serif" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1">ORG LOGO</text>
+</svg>

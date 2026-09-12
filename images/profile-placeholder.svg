@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2a42" />
+      <stop offset="100%" stop-color="#0f1b2d" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dfc376" />
+      <stop offset="50%" stop-color="#c9a84c" />
+      <stop offset="100%" stop-color="#a88a34" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgGrad)" />
+  <!-- Compass / Coordinate Reticle Circles -->
+  <circle cx="200" cy="200" r="170" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="1.5" stroke-dasharray="4 4" />
+  <circle cx="200" cy="200" r="140" fill="none" stroke="rgba(201,168,76,0.25)" stroke-width="1.5" />
+  <circle cx="200" cy="200" r="105" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="1" />
+  <!-- Reticle Crosshairs -->
+  <line x1="200" y1="20" x2="200" y2="380" stroke="rgba(201,168,76,0.15)" stroke-width="1.5" />
+  <line x1="20" y1="200" x2="380" y2="200" stroke="rgba(201,168,76,0.15)" stroke-width="1.5" />
+  <!-- Profile Avatar Silhouette -->
+  <circle cx="200" cy="155" r="50" fill="url(#goldGrad)" opacity="0.9" />
+  <path d="M120 280 C120 220, 280 220, 280 280 Z" fill="url(#goldGrad)" opacity="0.9" />
+  <!-- Badge Label -->
+  <rect x="100" y="320" width="200" height="34" rx="17" fill="#16253a" stroke="#c9a84c" stroke-width="1.5" />
+  <text x="200" y="342" fill="#dfc376" font-family="'Inter', sans-serif" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="1.5">PROFILE PHOTO PLACEHOLDER</text>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" width="800" height="560">
+  <defs>
+    <linearGradient id="certBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#19273c" />
+      <stop offset="100%" stop-color="#0f1927" />
+    </linearGradient>
+    <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dfc376" />
+      <stop offset="50%" stop-color="#c9a84c" />
+      <stop offset="100%" stop-color="#917427" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="560" fill="url(#certBg)" rx="12" />
+  <!-- Outer Border -->
+  <rect x="25" y="25" width="750" height="510" rx="8" fill="none" stroke="url(#goldBorder)" stroke-width="3" />
+  <!-- Inner Border -->
+  <rect x="35" y="35" width="730" height="490" rx="6" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="1" stroke-dasharray="8 4" />
+  
+  <!-- Corner Ornaments -->
+  <path d="M 40 60 L 60 40 M 40 70 L 70 40 M 40 80 L 80 40" stroke="#c9a84c" stroke-width="1.5" />
+  <path d="M 760 60 L 740 40 M 760 70 L 730 40 M 760 80 L 720 40" stroke="#c9a84c" stroke-width="1.5" />
+  <path d="M 40 500 L 60 520 M 40 490 L 70 520 M 40 480 L 80 520" stroke="#c9a84c" stroke-width="1.5" />
+  <path d="M 760 500 L 740 520 M 760 490 L 730 520 M 760 480 L 720 520" stroke="#c9a84c" stroke-width="1.5" />
+
+  <!-- Geodetic Compass Seal -->
+  <circle cx="400" cy="130" r="45" fill="#142133" stroke="url(#goldBorder)" stroke-width="2.5" />
+  <circle cx="400" cy="130" r="38" fill="none" stroke="rgba(201,168,76,0.4)" stroke-width="1" stroke-dasharray="3 3" />
+  <!-- Star / Reticle in seal -->
+  <path d="M 400 98 L 404 125 L 432 130 L 404 135 L 400 162 L 396 135 L 368 130 L 396 125 Z" fill="#c9a84c" />
+
+  <!-- Texts -->
+  <text x="400" y="215" fill="#dfc376" font-family="'Playfair Display', Georgia, serif" font-size="28" font-weight="700" text-anchor="middle" letter-spacing="3">CERTIFICATE OF RECOGNITION</text>
+  <text x="400" y="245" fill="#9aa5b4" font-family="'Inter', sans-serif" font-size="14" text-anchor="middle" letter-spacing="2">THIS CERTIFICATE IS PROUDLY PRESENTED TO</text>
+  
+  <line x1="220" y1="300" x2="580" y2="300" stroke="#c9a84c" stroke-width="1.5" />
+  <text x="400" y="290" fill="#ffffff" font-family="'Playfair Display', Georgia, serif" font-size="26" font-style="italic" text-anchor="middle">[ STUDENT'S FULL NAME ]</text>
+  
+  <text x="400" y="340" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="14" text-anchor="middle">For successfully completing the training and proficiency requirements in</text>
+  <text x="400" y="370" fill="#dfc376" font-family="'Inter', sans-serif" font-size="18" font-weight="600" text-anchor="middle">[ Course / Seminar / Training Program Title ]</text>
+  
+  <!-- Bottom signatures and date -->
+  <line x1="160" y1="460" x2="310" y2="460" stroke="#5a6a7e" stroke-width="1" />
+  <text x="235" y="480" fill="#8a95a7" font-family="'Inter', sans-serif" font-size="12" text-anchor="middle">Authorized Signatory</text>
+  
+  <line x1="490" y1="460" x2="640" y2="460" stroke="#5a6a7e" stroke-width="1" />
+  <text x="565" y="480" fill="#8a95a7" font-family="'Inter', sans-serif" font-size="12" text-anchor="middle">Date of Issuance</text>
+</svg>
