@@ -24,10 +24,21 @@ function initNavbar() {
     const linkHref = link.getAttribute('href');
     if (linkHref === currentPath || (currentPath === '' && linkHref === 'index.html')) {
       link.classList.add('active');
+      const parentDropdown = link.closest('.nav-dropdown');
+      if (parentDropdown) {
+        const toggle = parentDropdown.querySelector('.nav-dropdown-toggle');
+        if (toggle) toggle.classList.add('active');
+      }
     } else {
       link.classList.remove('active');
     }
   });
+
+  // If current page is certificates.html or trainings.html, ensure parent toggle is active
+  if (currentPath === 'certificates.html' || currentPath === 'trainings.html') {
+    const parentToggle = document.querySelector('.nav-dropdown-toggle');
+    if (parentToggle) parentToggle.classList.add('active');
+  }
 
   // Scroll effect on navbar
   window.addEventListener('scroll', () => {
@@ -143,14 +154,25 @@ function initModal() {
   function openModal(data) {
     if (modalImg) modalImg.src = data.image || '';
     if (modalImg) modalImg.alt = data.title || 'Document Preview';
-    if (modalTitle) modalTitle.textContent = data.title || 'Certificate / Document Preview';
+    if (modalTitle) modalTitle.textContent = data.title || 'Document Preview';
     if (modalIssuer) modalIssuer.textContent = data.issuer ? `Issued by: ${data.issuer}` : '';
     if (modalDate) modalDate.textContent = data.date ? `Date: ${data.date}` : '';
     if (modalDesc) modalDesc.textContent = data.desc || '';
+
+    const isDoc = (data.title && data.title.toLowerCase().includes('documentation')) || 
+                  (data.file && data.file.toLowerCase().includes('geostem'));
+
+    const modalHeaderIcon = modal.querySelector('.modal-header-title i');
+    if (modalHeaderIcon) {
+      modalHeaderIcon.className = isDoc ? 'fa-solid fa-image' : 'fa-solid fa-award';
+      modalHeaderIcon.style.color = 'var(--color-gold)';
+    }
+
     if (modalDownload) {
       if (data.file) {
         modalDownload.href = data.file;
-        modalDownload.setAttribute('download', '');
+        modalDownload.setAttribute('download', data.downloadName || '');
+        modalDownload.innerHTML = `<i class="fa-solid fa-download"></i> ${isDoc ? 'Download Documentation' : 'Download Certificate'}`;
         modalDownload.style.display = 'inline-flex';
       } else {
         modalDownload.href = '#';
@@ -181,7 +203,8 @@ function initModal() {
         date: trigger.getAttribute('data-date') || card.querySelector('.card-date')?.textContent || '',
         desc: trigger.getAttribute('data-desc') || card.querySelector('.card-text')?.textContent || '',
         image: trigger.getAttribute('data-image') || card.querySelector('img')?.src || '',
-        file: trigger.getAttribute('data-file') || ''
+        file: trigger.getAttribute('data-file') || '',
+        downloadName: trigger.getAttribute('data-download-name') || ''
       };
       openModal(data);
     });

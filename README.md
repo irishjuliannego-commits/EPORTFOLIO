@@ -26,27 +26,30 @@ E PORTFOLIO/
 ├── about.html               # 2. About Me (Education, Technical & Soft Skills, References)
 ├── application-letter.html  # 3. Official Application Letter (Zero-UI Clean A4 Paper Render)
 ├── resume.html              # 4. Curriculum Vitae / Resume (Zero-UI Clean A4 Paper Render)
-├── trainings.html           # 5. Trainings & Seminars (MapTalks Lecture Series 1, 2, 3)
-├── certificates.html        # 6. Certificates Gallery (MapTalks Lecture 1 & verified credentials)
+├── trainings.html           # 5. Trainings & Seminars (GeoSTEM & MapTalks 1 — Text Information Only)
+├── certificates.html        # 6. Certificates & Credentials (OJT Certificate, MapTalks 1, GeoSTEM Photo)
 ├── experience.html          # 7. Work Experience (BPA Abatayo Land Surveying Services)
 ├── affiliations.html        # 8. Affiliations & Leadership (YGESS President & Treasurer, MAGES Board)
 ├── README.md                # Project documentation
 │
 ├── css/
-│   └── style.css            # Black, White & Gold design system & responsive styling
+│   └── style.css            # Black, White & Gold master stylesheet & responsive design system
 │
 ├── js/
-│   ├── main.js              # Mobile navigation, smooth scrolling, scroll reveal animations
-│   ├── doc-renderer.js      # Zero-UI high-resolution document renderer
-│   ├── document-data.js     # Base64 document data for offline viewing
+│   ├── main.js              # Navbar toggle, dropdown interactions, scroll reveals, modal controller
+│   ├── doc-renderer.js      # Zero-UI high-fidelity PDF canvas renderer & fullscreen zoom
+│   ├── document-data.js     # Embedded base64 payloads for offline/local document rendering
 │   └── vendor/
-│       └── pdf.min.js       # Local PDF rendering engine
+│       ├── pdf.min.js       # PDF.js core library
+│       └── pdf.worker.min.js# PDF.js worker
 │
 ├── images/
 │   ├── profile.jpg          # Official corporate portrait
-│   ├── certificates/        # High-resolution certificate scans
-│   │   └── maptalks_lecture_1.png
-│   └── ...                  # Future certificate scans & imagery
+│   ├── certificates/        # Certificate scans and documentation photos
+│   │   ├── ojt_certificate_bpa_abatayo.jpg
+│   │   ├── maptalks_lecture_1.png
+│   │   └── geostems_seminar_2026.jpg
+│   └── ...
 │
 └── docs/
     ├── Application_Letter_Irish_Julianne_Go.pdf

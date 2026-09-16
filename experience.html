@@ -23,8 +23,8 @@
   <header class="navbar">
     <div class="container">
       <a href="index.html" class="nav-brand">
-        <i class="fa-solid fa-compass-drafting" style="color: var(--color-gold); margin-right: 8px;"></i>
-        <span>IRISH JULIANNE GO</span>, GE
+        <i class="fa-solid fa-compass-drafting"></i>
+        <span>IRISH JULIANNE GO</span>
       </a>
 
       <button class="nav-toggle" aria-label="Toggle navigation menu">
@@ -39,8 +39,14 @@
           <li><a href="about.html"><i class="fa-solid fa-user"></i> About Me</a></li>
           <li><a href="application-letter.html"><i class="fa-solid fa-envelope-open-text"></i> Application Letter</a></li>
           <li><a href="resume.html"><i class="fa-solid fa-file-lines"></i> Resume</a></li>
-          <li><a href="trainings.html"><i class="fa-solid fa-chalkboard-user"></i> Trainings & Seminars</a></li>
-          <li><a href="certificates.html"><i class="fa-solid fa-award"></i> Certificates</a></li>
+          <li class="nav-dropdown">
+            <a href="trainings.html" class="nav-dropdown-toggle">
+              <i class="fa-solid fa-chalkboard-user"></i> Trainings &amp; Seminars <i class="fa-solid fa-chevron-down nav-caret"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="certificates.html"><i class="fa-solid fa-award"></i> Certificates</a></li>
+            </ul>
+          </li>
           <li><a href="experience.html" class="active"><i class="fa-solid fa-briefcase"></i> Work Experience</a></li>
           <li><a href="affiliations.html"><i class="fa-solid fa-users-rectangle"></i> Affiliations & Leadership</a></li>
         </ul>
@@ -121,10 +127,12 @@
             <span class="tag">DENR Land Records Research</span>
             <span class="tag">Boundary Verification</span>
           </div>
+        </div>
+
         <div class="card-actions" style="margin-top: var(--space-lg);">
-          <a href="certificates.html" class="btn btn-primary btn-sm">
-            <i class="fa-solid fa-award"></i> View Verified OJT Certificate
-          </a>
+          <button class="btn btn-primary btn-sm" data-modal-target data-image="images/certificates/ojt_certificate_bpa_abatayo.jpg" data-file="images/certificates/ojt_certificate_bpa_abatayo.jpg" data-title="Certificate of On-The-Job Training Completion" data-issuer="BPA Abatayo Land Surveying Services &bull; Engr. Broddett B. Abatayo, CEO" data-date="August 1, 2026" data-desc="Conferred to Irish Julianne Go for successfully completing 240 working hours of On-The-Job Training at BPA Abatayo Land Surveying Services with a 98% satisfactory rating. Given at Bolihon Beach Resort, Carmen, Agusan del Norte.">
+            <i class="fa-solid fa-eye"></i> View Certificate
+          </button>
           <a href="images/certificates/ojt_certificate_bpa_abatayo.jpg" class="btn btn-outline btn-sm" download="OJT_Certificate_Irish_Julianne_Go.jpg">
             <i class="fa-solid fa-download"></i> Download Certificate
           </a>
@@ -185,6 +193,34 @@
       </div>
     </div>
   </footer>
+
+  <!-- ==================== CERTIFICATE LIGHTBOX MODAL ==================== -->
+  <div class="modal-overlay" id="previewModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-header-title">
+          <i class="fa-solid fa-award" style="color: var(--color-gold);"></i>
+          <span id="modalTitle">Certificate Preview</span>
+        </div>
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img src="" alt="Certificate Preview" class="modal-image" id="modalImage">
+      </div>
+      <div class="modal-footer">
+        <div class="modal-footer-meta">
+          <div id="modalIssuer" style="font-weight: 600; color: var(--color-heading-dark);"></div>
+          <div id="modalDate" style="color: var(--color-text-muted); font-size: 0.82rem;"></div>
+          <p id="modalDesc" style="font-size: 0.82rem; margin: 4px 0 0; display: none;"></p>
+        </div>
+        <div>
+          <a href="#" class="btn btn-primary btn-sm" id="modalDownload" download>
+            <i class="fa-solid fa-download"></i> Download Certificate
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Back to Top Button -->
   <button class="back-to-top" aria-label="Scroll back to top">
