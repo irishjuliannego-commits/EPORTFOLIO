@@ -48,9 +48,10 @@ function initMobileMenu() {
 
   navToggle.addEventListener('click', (e) => {
     e.stopPropagation();
-    navToggle.classList.toggle('open');
-    navLinks.classList.toggle('open');
-    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
   // Close when clicking any nav link
@@ -58,6 +59,7 @@ function initMobileMenu() {
     link.addEventListener('click', () => {
       navToggle.classList.remove('open');
       navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
   });
@@ -67,6 +69,17 @@ function initMobileMenu() {
     if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !navToggle.contains(e.target)) {
       navToggle.classList.remove('open');
       navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Reset state on window resize past mobile breakpoint
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1120 && navLinks.classList.contains('open')) {
+      navToggle.classList.remove('open');
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
   });
@@ -163,10 +176,10 @@ function initModal() {
       e.preventDefault();
       const card = trigger.closest('.card') || trigger.closest('.timeline-item') || trigger;
       const data = {
-        title: card.querySelector('.card-title')?.textContent || trigger.getAttribute('data-title') || 'Document',
+        title: trigger.getAttribute('data-title') || card.querySelector('.card-title')?.textContent || 'Document',
         issuer: trigger.getAttribute('data-issuer') || card.querySelector('.card-issuer')?.textContent || '',
         date: trigger.getAttribute('data-date') || card.querySelector('.card-date')?.textContent || '',
-        desc: card.querySelector('.card-text')?.textContent || trigger.getAttribute('data-desc') || '',
+        desc: trigger.getAttribute('data-desc') || card.querySelector('.card-text')?.textContent || '',
         image: trigger.getAttribute('data-image') || card.querySelector('img')?.src || '',
         file: trigger.getAttribute('data-file') || ''
       };
