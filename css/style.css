@@ -221,19 +221,23 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 var(--space-xl);
 }
 
 .nav-brand {
   font-family: var(--font-heading);
   font-size: 1.15rem;
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--color-gold);
   letter-spacing: .5px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  white-space: nowrap;
-  flex-shrink: 0;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  min-width: max-content;
   text-decoration: none;
 }
 .nav-brand i {
@@ -243,8 +247,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .nav-brand span {
   color: var(--color-gold);
-  white-space: nowrap;
-  display: inline;
+  white-space: nowrap !important;
+  display: inline-block;
 }
 .nav-brand:hover span {
   color: var(--color-gold-light);
@@ -253,13 +257,18 @@ h1, h2, h3, h4, h5, h6 {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
 }
 
 .nav-links a {
-  display: block;
-  padding: .45rem .65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: .4rem .55rem;
   font-size: .8rem;
   font-weight: 500;
   color: #D4D4D4;
@@ -282,6 +291,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Dropdown Menu Hierarchy (Certificates under Trainings & Seminars) */
 .nav-dropdown {
   position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 .nav-dropdown-toggle {
   display: inline-flex !important;
@@ -295,24 +306,25 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 2px;
 }
 .nav-dropdown:hover .nav-caret,
-.nav-dropdown:focus-within .nav-caret {
+.nav-dropdown.open .nav-caret {
   transform: rotate(180deg);
   color: var(--color-gold);
 }
 
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 10px);
   left: 0;
-  min-width: 210px;
-  background: rgba(11, 11, 11, 0.98);
+  min-width: 190px;
+  background: #141414;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid #262626;
+  border: 1px solid rgba(212, 175, 55, 0.4);
   border-radius: var(--radius-sm);
   padding: 6px;
   list-style: none;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.12);
+  display: none;
   opacity: 0;
   visibility: hidden;
   transform: translateY(6px);
@@ -320,22 +332,23 @@ h1, h2, h3, h4, h5, h6 {
               transform var(--duration) var(--ease-smooth),
               visibility var(--duration) var(--ease-smooth);
   pointer-events: none;
-  z-index: 1050;
+  z-index: 1100;
 }
 .dropdown-menu::before {
   content: '';
   position: absolute;
-  top: -10px;
+  top: -14px;
   left: 0;
   right: 0;
-  height: 10px;
+  height: 14px;
 }
 .nav-dropdown:hover .dropdown-menu,
-.nav-dropdown:focus-within .dropdown-menu {
+.nav-dropdown.open .dropdown-menu {
+  display: block;
   opacity: 1;
   visibility: visible;
-  transform: translateY(2px);
-  pointer-events: all;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 .dropdown-menu li {
   width: 100%;
@@ -344,7 +357,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 0.6rem 0.85rem;
+  padding: 0.55rem 0.85rem;
   font-size: 0.82rem;
   font-weight: 500;
   color: #D4D4D4;
@@ -1212,7 +1225,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ---------- Responsive Breakpoints ---------- */
-@media (max-width: 1120px) {
+@media (max-width: 1180px) {
   :root { --nav-height: 64px; }
 
   .container { padding: 0 var(--space-lg); }
@@ -1256,8 +1269,13 @@ h1, h2, h3, h4, h5, h6 {
   /* Nav brand responsive sizing */
   .nav-brand {
     font-size: 1.08rem;
-    white-space: nowrap;
-    flex-shrink: 0;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    min-width: max-content;
+  }
+  .nav-brand span {
+    white-space: nowrap !important;
+    display: inline-block;
   }
 
   /* Mobile Dropdown Sub-menu (Tree Hierarchy matching reference) */
@@ -1271,10 +1289,11 @@ h1, h2, h3, h4, h5, h6 {
   }
   .dropdown-menu {
     position: static;
+    display: block;
     opacity: 1;
     visibility: visible;
     transform: none;
-    pointer-events: all;
+    pointer-events: auto;
     background: transparent;
     border: none;
     box-shadow: none;

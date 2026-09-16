@@ -87,13 +87,26 @@ function initMobileMenu() {
 
   // Reset state on window resize past mobile breakpoint
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 1120 && navLinks.classList.contains('open')) {
+    if (window.innerWidth > 1180 && navLinks.classList.contains('open')) {
       navToggle.classList.remove('open');
       navLinks.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
   });
+
+  // Dropdown outside-click & mouseleave handlers
+  const navDropdown = document.querySelector('.nav-dropdown');
+  if (navDropdown) {
+    document.addEventListener('click', (e) => {
+      if (!navDropdown.contains(e.target)) {
+        navDropdown.classList.remove('open');
+      }
+    });
+    navDropdown.addEventListener('mouseleave', () => {
+      navDropdown.classList.remove('open');
+    });
+  }
 }
 
 /* ---------- Scroll Reveal & Back to Top ---------- */
